@@ -1,5 +1,3 @@
-package map;
-
 public enum MapDirection {
     NORTH,
     NORTHEAST,
@@ -142,5 +140,27 @@ public enum MapDirection {
                 return NORTHWEST;
         }
         throw new IllegalArgumentException("Incorrect direction argument");
+    }
+
+    public char toChar() {
+        switch (this) {
+            case NORTH:
+                return '^';
+            case NORTHEAST:
+                return '"';
+            case EAST:
+                return '>';
+            case SOUTHEAST:
+                return ',';
+            case SOUTH:
+                return 'v';
+            case SOUTHWEST:
+                return '/';
+            case WEST:
+                return '<';
+            case NORTHWEST:
+                return '~';
+        }
+        return '^';
     }
 }

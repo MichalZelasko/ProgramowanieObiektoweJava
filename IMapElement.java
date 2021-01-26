@@ -1,10 +1,7 @@
-package worldMapElement;
-
-import map.Vector2d;
-
 public interface IMapElement {
+    public Vector2d getCoordinates();
 
-    Vector2d getPosition();
+    public boolean equals(Object o);
 
-    String toString();
+    public int hashCode();
 }

@@ -1,13 +1,11 @@
-package map;
-
 import java.util.Objects;
 
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
 public class Vector2d {
-    public final int x;
-    public final int y;
+    private int x;
+    private int y;
 
     public Vector2d(int x, int y) {
         this.x = x;
@@ -69,5 +67,34 @@ public class Vector2d {
 
     public int getY() {
         return y;
+    }
+
+    public Vector2d multiplyByScalar(int a) {
+        return new Vector2d(x * a, y * a);
+    }
+
+    public MapDirection toMapDirection() {
+        if(this.x == 0 && this.y == 1) {
+            return MapDirection.NORTH;
+        }
+        if(this.x == 1 && this.y == 1) {
+            return MapDirection.NORTHEAST;
+        }
+        if(this.x == 1 && this.y == 0) {
+            return MapDirection.EAST;
+        }
+        if(this.x == 1 && this.y == -1) {
+            return MapDirection.SOUTHEAST;
+        }
+        if(this.x == 0 && this.y == -1) {
+            return MapDirection.SOUTH;
+        }
+        if(this.x == -1 && this.y == -1) {
+            return MapDirection.SOUTHWEST;
+        }
+        if(this.x == -1 && this.y == 0) {
+            return MapDirection.WEST;
+        }
+        return MapDirection.NORTHWEST;
     }
 }
